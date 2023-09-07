@@ -13,10 +13,10 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import javax.sql.DataSource;
 
 
-//@Import(MemoryConfig.class)
-@Import(JdbcTemplateV2Config.class)
-@SpringBootApplication(scanBasePackages = "hello.itemservice.web")
 @Slf4j
+@Import(MyBatisConfig.class)
+
+@SpringBootApplication(scanBasePackages = "hello.itemservice.web")
 public class ItemServiceApplication {
 
 	public static void main(String[] args) {
@@ -29,15 +29,18 @@ public class ItemServiceApplication {
 		return new TestDataInit(itemRepository);
 	}
 
-//	@Bean
-//	@Profile("test")
-//	public DataSource dataSource() {
-//		log.info("메모리 데이터베이스 초기화");
-//		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-//		dataSource.setDriverClassName("org.h2.Driver");
-//		dataSource.setUrl("jdbc:h2:mem:db;DB_CLOSE_DELAY=-1");
-//		dataSource.setUsername("sa");
-//		dataSource.setPassword("");
-//		return dataSource;
-//	}
+/*
+	@Bean
+	@Profile("test")
+	public DataSource dataSource() {
+		log.info("메모리 데이터베이스 초기화");
+		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		dataSource.setDriverClassName("org.h2.Driver");
+		dataSource.setUrl("jdbc:h2:mem:db;DB_CLOSE_DELAY=-1");
+		dataSource.setUsername("sa");
+		dataSource.setPassword("");
+		return dataSource;
+	}
+*/
+
 }

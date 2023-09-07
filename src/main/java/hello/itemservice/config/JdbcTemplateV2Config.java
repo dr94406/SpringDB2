@@ -17,12 +17,12 @@ public class JdbcTemplateV2Config {
 
     private final DataSource  dataSource;
 
-    @Bean
+//    @Bean
     public ItemService itemService() {
         return new ItemServiceV1(itemRepository());
     }
 
-    @Bean
+//    @Bean
     public ItemRepository itemRepository() {
         return new JdbcTemplateItemRepositoryV2(dataSource);
     }
