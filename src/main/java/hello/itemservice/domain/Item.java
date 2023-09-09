@@ -2,11 +2,17 @@ package hello.itemservice.domain;
 
 import lombok.Data;
 
+import javax.persistence.*;
+
 @Data
+@Entity
 public class Item {
 
+    /**  DB에서 값을 넣어주는 방식 */
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name ="item_name", length = 10)
     private String itemName;
     private Integer price;
     private Integer quantity;
